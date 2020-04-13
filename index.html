@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" type="text/css" rel="stylesheet">
+    <title>Personal Library</title>
+</head>
+<body>
+    <h1>Personal Library</h1>
+    <div class="add-book">
+        <label for="title">Book title</label>
+        <input type="text" id="title" name="title" required
+               maxlength="20" size="20">
+        <label for="author">Author</label>
+        <input type="text" id="author" name="author" required
+               maxlength="20" size="15">
+        <label for="pages"># of Pages</label>
+        <input type="text" id="pages" name="pages" required
+               maxlength="10" size="10">
+        <label for="read-status">Have you read the book?</label>
+        <input type="radio" id="have-read" name="read-status">  
+        <label for="have-read">Yes</label>
+        <input type="radio" id="not-read" name="read-status">  
+        <label for="not-read">No</label>
+        <input type="submit" name="submit" id="submit">
+
+    </div>
+    <table class="book-table">
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Pages</th>
+            <th>Status</th>
+        </tr>
+    </table>
+
+    </div>
+    <script src="books.js"></script>
+</body>
+</html>
