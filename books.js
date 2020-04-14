@@ -1,4 +1,6 @@
-const submitButton = document.querySelector("input[id=submit]");
+const submitButton = document.querySelector("#submit");
+const addEntryButton = document.querySelector("#add-entry");
+const bookInfo = document.querySelector(".add-book");
 let book = [];
 
 function Book(name, author, pages, haveRead) {
@@ -33,10 +35,43 @@ function newEntry() {
     const newPages = document.getElementById("pages").value;
     const newReadStatus = document.getElementById("have-read").checked? "Read" : "Not read";
 
+    if(newTitle === "" || newAuthor === "" || newPages === "") {
+        alert("Check missing fields!");
+        return;
+    }
+
+    if(isNaN(parseInt(newPages))){
+        alert("Invalid page number");
+        return;
+    }
     addToLibrary(new Book(newTitle, newAuthor, newPages, newReadStatus));
+    clearInputs();
 }
 
-addToLibrary(new Book("The Great Gatsby", "F. Scott Fitzgerald", "218", false));
-addToLibrary(new Book("War and Peace", "Leo Tolstoy", "1,225", false));
+function clearInputs() {
+    const inputValues = document.querySelectorAll("input");
+    const radioButtons = document.querySelectorAll("input[type=radio]");
+    inputValues.forEach(input => {
+        if(input.value){
+            input.value = "";
+        }
+    });
+
+    radioButtons.forEach(box => box.checked = false);
+    toggleVisibility();
+}
+
+function toggleVisibility() {
+    if (addEntryButton.textContent === "\u002B"){
+        addEntryButton.textContent = "\u2212"; //minus symbol
+    }else {
+        addEntryButton.textContent = "\u002B"; //minus symbol
+    }
+    bookInfo.classList.toggle("visible");
+}
+
+addToLibrary(new Book("The Great Gatsby", "F. Scott Fitzgerald", "218", "Not read"));
+addToLibrary(new Book("War and Peace", "Leo Tolstoy", "1,225", "Not read"));
 
 submitButton.addEventListener("click", newEntry);
+addEntryButton.addEventListener("click", toggleVisibility);

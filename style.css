@@ -1,5 +1,32 @@
+html, body {
+    height: 100vh;
+}
+
+
 table {
     border: 1px solid black;
     width: 80%;
     margin: auto;
+    text-align: center;
+}
+
+
+#add-entry {
+    display: block;
+    margin: auto;
+    margin-bottom: 15px;
+    width: 80%;
+    height: 30px;
+    position: relative;
+}
+
+.add-book {
+    visibility: hidden;
+    text-align: center;
+    margin: auto;
+    width: 80%;
+}
+
+.visible {
+    visibility: visible;
 }
