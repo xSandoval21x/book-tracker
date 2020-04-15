@@ -49,7 +49,7 @@ function render(newBook) {
 function setReadStatus(book, statusButton) {
     if(book.haveRead){
         statusButton.innerText = "\u2718";  // x symbol
-        statusButton.style.background = "rgb(255, 115, 34)";
+        statusButton.style.background = "rgb(255, 203, 56)";
     }else {
         statusButton.innerText = "\u2714";  // checkmark symbol
         statusButton.style.background = "rgb(56, 172, 255)";
@@ -100,7 +100,7 @@ function toggleVisibility() {
         addEntryButton.style.background = "rgb(240, 0, 0)";
     }else {
         addEntryButton.textContent = "\u002B"; //plus symbol
-        addEntryButton.style.background = "rgb(255, 10, 10)";
+        addEntryButton.style.background = "rgb(0, 212, 0)";
     }
     bookInfo.classList.toggle("visible");
 }
