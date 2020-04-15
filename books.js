@@ -70,7 +70,7 @@ function newEntry() {
         return;
     }
 
-    if(isNaN(parseInt(newPages))){
+    if(!newPages.match(/^[\d,]+$/)){
         alert("Invalid page number");
         return;
     }
