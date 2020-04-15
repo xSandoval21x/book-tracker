@@ -3,42 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Bellota&family=Open+Sans&display=swap" rel="stylesheet">
     <link href="style.css" type="text/css" rel="stylesheet">
     <title>Personal Library</title>
 </head>
 <body>
-    <h1>Personal Library</h1>
-    <table class="book-table">
-        <tr>
-            <th id=delete-row></th>
-            <th>Book Title</th>
-            <th>Author</th>
-            <th>Pages</th>
-            <th>Read Status</th>
-            <th id="change-status"></th>
-        </tr>
-    </table>
-    <button id="add-entry">&plus;</button>
+    <h1>&#x1F4DA; myBookshelf</h1>
+    <div class="center-elements">
+        <table class="book-table">
+            <tr class="table-header">
+                <th id=delete-row></th>
+                <th>Book Title</th>
+                <th>Author</th>
+                <th>Pages</th>
+                <th>Read Status</th>
+                <th id="change-status"></th>
+            </tr>
+        </table>
+        <button id="add-entry">&plus;</button>
+    </div>
     <div class="add-book">
-        <label for="title">Book title</label>
-        <input type="text" id="title" name="title"
-               maxlength="100" size="20">
-        <label for="author">Author</label>
-        <input type="text" id="author" name="author"
-               maxlength="50" size="15">
-        <label for="pages"># of Pages</label>
-        <input type="text" id="pages" name="pages"
-               maxlength="10" size="10">
-        <br>
-        <label for="read-status">Have you read the book?</label>
-        <input type="radio" id="have-read" name="read-status">  
-        <label for="have-read">Yes</label>
-        <input type="radio" id="not-read" name="read-status">  
-        <label for="not-read">No</label>
+        <div class="book-form">
+            <label for="title">Book title:</label>
+            <input type="text" id="title" name="title"
+                   maxlength="100" size="20">
+        </div>
+        <div class="book-form">
+            <label for="author">Author:</label>
+            <input type="text" id="author" name="author"
+                   maxlength="50" size="15">
+        </div>
+        <div class="book-form">
+            <label for="pages">Number of Pages:</label>
+            <input type="text" id="pages" name="pages"
+                   maxlength="10" size="5">
+        </div>
+        <div class="book-form">
+            <label for="read-status">Have you read the book?</label>
+            <input type="radio" id="have-read" name="read-status">  
+            <label for="have-read">Yes</label>
+            <input type="radio" id="not-read" name="read-status">  
+            <label for="not-read">No</label>
+        </div>
         <input type="submit" name="submit" id="submit">
-
     </div>
     </div>
+    <footer>
+        <div id="sandoval">xSandoval21x</div>
+    </footer>
     <script src="books.js"></script>
 </body>
 </html>

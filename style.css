@@ -1,36 +1,111 @@
 html, body {
-    height: 100vh;
+    height: 100%;
+    margin: 0;  
+}
+
+body {
+    height: 100%;
+    background: linear-gradient(45deg, rgba(239, 239, 239, 0.8), rgb(168, 237, 255));
+    display: flex;
+    flex-direction: column;
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+    color: white;
+    text-shadow: 0 0 3px black;
+    font-family: 'Bellota', cursive;
+    font-size: 2rem;
 }
 
 
 table {
-    border: 1px solid black;
+    border: 2px solid black;
     border-collapse: collapse;
     width: 80%;
     margin: auto;
     text-align: center;
 }
 
-td {
+th, td {
     border-top: 1px solid black;
+    padding: 10px 5px 10px 5px;
+    font-size: 1.3rem;
+}
+
+.table-header {
+    background: url(wood-texture.jpg);
+    color: white;
+}
+
+td > button {
+    border: none;
+    border-radius: 5px;
+    color: white;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    font-size: 1.2rem;
 }
 
 #add-entry {
     display: block;
-    margin: auto;
+    margin: 10px auto 10px auto;
     margin-bottom: 15px;
-    width: 80%;
-    height: 30px;
+    width: 50px;
+    height: 50px;
+    border: none;
+    background: rgb(0, 212, 0);
+    border-radius: 30px;
     position: relative;
+    color: white;
+    font-size: 1.5rem;
 }
 
+.book-form {
+    margin: 10px;
+    font-size: 1.2rem;
+}
+
+
 .add-book {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     visibility: hidden;
-    text-align: center;
-    margin: auto;
+    margin: 20px auto auto auto;
     width: 80%;
+}
+
+#submit {
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background: rgb(0, 212, 0);
+}
+
+input {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.2rem;
 }
 
 .visible {
     visibility: visible;
+}
+
+footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 30px;
+    width: 100%;
+    margin-top: auto;
+    background: rgba(0, 0, 0, 0.05);
+
+}
+
+#sandoval {
+    margin-right: 5px;
+    color: rgba(0, 0, 0, 0.5);
 }

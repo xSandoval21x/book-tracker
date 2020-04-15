@@ -26,24 +26,17 @@ function render(newBook) {
     const changeStatusCell = newRow.insertCell();
 
     const deleteButton = document.createElement("button");
-    deleteButton.innerText = "\u2212";
+    deleteButton.innerText = "\u2212";  //minus symbol
+    deleteButton.style.background = "rgb(240, 0, 0)";
     deleteCell.appendChild(deleteButton);
     deleteButton.addEventListener("click", deleteRow);
 
     const changeStatusButton = document.createElement("button");
-    if(newBook.haveRead){
-        changeStatusButton.innerText = "\u2718";
-    }else {
-        changeStatusButton.innerText = "\u2714";
-    }
+    setReadStatus(newBook, changeStatusButton);
     changeStatusCell.appendChild(changeStatusButton);
     changeStatusButton.addEventListener("click", function() {
         newBook.haveRead = !newBook.haveRead;
-        if(newBook.haveRead){
-            changeStatusButton.innerText = "\u2718";
-        }else {
-            changeStatusButton.innerText = "\u2714";
-        }
+        setReadStatus(newBook, changeStatusButton);
         haveReadCell.innerText = newBook.haveRead? "Read" : "Not read";
     });
 
@@ -51,6 +44,16 @@ function render(newBook) {
     authorCell.innerText = newBook.author;
     pagesCell.innerText = newBook.pages
     haveReadCell.innerText = newBook.haveRead? "Read" : "Not read";
+}
+
+function setReadStatus(book, statusButton) {
+    if(book.haveRead){
+        statusButton.innerText = "\u2718";  // x symbol
+        statusButton.style.background = "rgb(255, 115, 34)";
+    }else {
+        statusButton.innerText = "\u2714";  // checkmark symbol
+        statusButton.style.background = "rgb(56, 172, 255)";
+    }
 }
 
 function deleteRow() {
@@ -70,7 +73,7 @@ function newEntry() {
         return;
     }
 
-    if(!newPages.match(/^[\d,]+$/)){
+    if(!newPages.match(/^[\d,]+$/)){  //if pages input is not an int or comma, alert
         alert("Invalid page number");
         return;
     }
@@ -94,8 +97,10 @@ function clearInputs() {
 function toggleVisibility() {
     if (addEntryButton.textContent === "\u002B"){
         addEntryButton.textContent = "\u2212"; //minus symbol
+        addEntryButton.style.background = "rgb(240, 0, 0)";
     }else {
-        addEntryButton.textContent = "\u002B"; //minus symbol
+        addEntryButton.textContent = "\u002B"; //plus symbol
+        addEntryButton.style.background = "rgb(255, 10, 10)";
     }
     bookInfo.classList.toggle("visible");
 }
