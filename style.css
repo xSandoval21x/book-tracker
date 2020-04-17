@@ -18,6 +18,22 @@ h1 {
     font-size: 2rem;
 }
 
+#title {
+    color: white;
+    text-shadow: 0 0 3px black;
+    font-family: 'Bellota', cursive;
+    font-size: 1.5rem;
+}
+
+.info {
+    display: flex;
+    flex-direction: row;
+    font-family: 'Bellota', cursive;
+    font-weight: bold;
+    font-size: 1.3rem;
+    justify-content: center;
+    align-items: center;
+}
 
 table {
     border: 2px solid black;
@@ -84,6 +100,11 @@ button:hover, #submit:hover {
     visibility: hidden;
     margin: 20px auto auto auto;
     width: 80%;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.book-form > input[type="radio"] {
+    box-shadow: none;
 }
 
 #submit {
@@ -96,6 +117,8 @@ button:hover, #submit:hover {
 input {
     font-family: 'Open Sans', sans-serif;
     font-size: 1.2rem;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+    border: none;
 }
 
 .visible {
@@ -116,4 +139,7 @@ footer {
 #sandoval {
     margin-right: 5px;
     color: rgba(0, 0, 0, 0.5);
+    font-family: 'Bellota', cursive;
+    font-size: 1.1rem;
+    font-weight: bold;
 }
