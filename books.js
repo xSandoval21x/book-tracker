@@ -1,7 +1,9 @@
 const submitButton = document.querySelector("#submit");
 const addEntryButton = document.querySelector("#add-entry");
 const bookInfo = document.querySelector(".add-book");
-let book = [];
+let books = JSON.parse(localStorage.getItem('booksArray') || '[]');
+//get users books from local storage
+//defaults to empty array if user has no books stored
 
 function Book(name, author, pages, haveRead) {
     this.name = name;
@@ -10,12 +12,18 @@ function Book(name, author, pages, haveRead) {
     this.haveRead = haveRead;
 }
 
+function setLocalStorage() {
+    localStorage.setItem('booksArray', JSON.stringify(books));
+}
+
 function addToLibrary(newBook) {
-    book.push(newBook);
+    books.push(newBook);
     render(newBook);
+    setLocalStorage();
 }
 
 function render(newBook) {
+    //create DOM elements for new row
     const table = document.querySelector("table");
     const newRow = table.insertRow();
     const deleteCell = newRow.insertCell();
@@ -25,21 +33,26 @@ function render(newBook) {
     const haveReadCell = newRow.insertCell();
     const changeStatusCell = newRow.insertCell();
 
+    //create delete button for new row with event listener
     const deleteButton = document.createElement("button");
     deleteButton.innerText = "\u2212";  //minus symbol
     deleteButton.style.background = "rgb(240, 0, 0)";
     deleteCell.appendChild(deleteButton);
-    deleteButton.addEventListener("click", deleteRow);
+    deleteButton.addEventListener("click", function() {
+        deleteRow(newBook);
+    });
 
+    //create button to change read status of book with event listener
     const changeStatusButton = document.createElement("button");
     setReadStatus(newBook, changeStatusButton);
     changeStatusCell.appendChild(changeStatusButton);
     changeStatusButton.addEventListener("click", function() {
-        newBook.haveRead = !newBook.haveRead;
+        changeReadStatus(newBook);
         setReadStatus(newBook, changeStatusButton);
         haveReadCell.innerText = newBook.haveRead? "Read" : "Not read";
     });
 
+    //populate new row with book details
     titleCell.innerText = newBook.name;
     authorCell.innerText = newBook.author;
     pagesCell.innerText = newBook.pages
@@ -56,11 +69,17 @@ function setReadStatus(book, statusButton) {
     }
 }
 
-function deleteRow() {
-    const row = event.target.parentNode.parentNode;
-    row.parentNode.removeChild(row);
+function changeReadStatus (book) {
+    book.haveRead = !book.haveRead;
+    setLocalStorage();
 }
 
+function deleteRow(newBook) {
+    const row = event.target.parentNode.parentNode;
+    row.parentNode.removeChild(row);
+    books = books.filter(bookEntry => bookEntry !== newBook);
+    setLocalStorage();
+}
 
 function newEntry() {
     const newTitle = document.getElementById("title").value;
@@ -105,8 +124,16 @@ function toggleVisibility() {
     bookInfo.classList.toggle("visible");
 }
 
-addToLibrary(new Book("The Great Gatsby", "F. Scott Fitzgerald", "218", false));
-addToLibrary(new Book("War and Peace", "Leo Tolstoy", "1,225", false));
+if (books.length === 0) {
+    addToLibrary(new Book("The Great Gatsby", "F. Scott Fitzgerald", "218", false));
+    addToLibrary(new Book("War and Peace", "Leo Tolstoy", "1,225", false));
+} else {
+    books.forEach(book => {
+        render(book);
+    });
+
+}
+
 
 submitButton.addEventListener("click", newEntry);
 addEntryButton.addEventListener("click", toggleVisibility);
