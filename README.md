@@ -8,6 +8,7 @@ Project from the Odin Project curriculum
 * Add entry form allows users to add as many books as they want
 * Remove button on each row allows users to remove book entries
 * Change status button allows users to change the read status of each book
+* Entries are saved in users' local storage allowing it to be saved on reload and between sessions
     
 ### Project Reflection
 * This was a good project for working with an array of objects
@@ -16,4 +17,5 @@ Project from the Odin Project curriculum
 * I used a table element which I hadn't really used before
 * Got practice with adding and removing table rows
 * I notice I am getting quicker with the javascript, but I still am taking a long time with the CSS
+* I came back to the project a couple weeks later to add local storage accessibility which was a good learning experience
 
